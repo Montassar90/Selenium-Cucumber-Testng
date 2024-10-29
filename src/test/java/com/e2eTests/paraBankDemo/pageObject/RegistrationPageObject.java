@@ -54,6 +54,9 @@ public class RegistrationPageObject {
 	@FindBy(how = How.XPATH, using = "//div[@id='rightPanel']/p")
 	private WebElement successMsg;
 
+	@FindBy(how = How.ID, using = "customer.username.errors")
+	private WebElement userNameError;
+
 	public ConfigFileReader configFileReader;
 
 	// Constructor initializes WebElements and loads configuration file
@@ -69,7 +72,7 @@ public class RegistrationPageObject {
 
 	// Method to fill out the registration form with data from configuration file
 	public void performFormFill() {
-		String browser = System.getProperty("browser","chrome"); // Retrieves the current browser property
+		String browser = System.getProperty("browser", "chrome"); // Retrieves the current browser property
 		// Fill in each field in the registration form
 		firstNameInput.sendKeys(configFileReader.getProperties("firstName"));
 		lastNameInput.sendKeys(configFileReader.getProperties("lastName"));
@@ -95,4 +98,9 @@ public class RegistrationPageObject {
 	public WebElement getSuccessMsg() {
 		return successMsg;
 	}
+
+	public WebElement getUserNameError() {
+		return userNameError;
+	}
+
 }
