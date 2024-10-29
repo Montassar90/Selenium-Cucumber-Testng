@@ -59,4 +59,22 @@ public class RegistrationStepDefinition {
 			System.err.println("An unexpected error occurred while verifying the success message: " + e.getMessage());
 		}
 	}
+	
+	@Then("I Should see an error message")
+	public void IShouldSeeAnErrorMessage() {
+		try {
+			// Retrieves the actual error message displayed on the UI.
+			String actualMsg = registrationPageObject.getUserNameError().getText();
+			// Retrieves the expected success message from the configuration file.
+			String expectedMsg = configFileReader.getProperties("registrationErrorMsg");
+			// Asserts that the actual message matches the expected message.
+			assertEquals(actualMsg, expectedMsg, "The error message does not match.");
+		} catch (NullPointerException e) {
+			// Logs an error if the success message element is not found or is null.
+			System.err.println("Error message element is not found or is null: " + e.getMessage());
+		} catch (Exception e) {
+			// Logs any other unexpected errors encountered during the assertion.
+			System.err.println("An unexpected error occurred while verifying the error message: " + e.getMessage());
+		}
+	}
 }

@@ -11,4 +11,8 @@ Feature: Registration
     When I fill the signup form
     And I click on the submit button
     Then I Should get logged in and see a succes message
- 
+
+  Scenario: Registration with already registered username
+    When I fill the signup form
+    And I click on the submit button
+    Then I Should see an error message
