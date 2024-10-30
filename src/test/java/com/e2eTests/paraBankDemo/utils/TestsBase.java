@@ -16,7 +16,10 @@ public class TestsBase {
     @Before
     public void setup() {
         // Gets the browser type from system properties, defaulting to "chrome"
-        String browser = System.getProperty("browser", "chrome");
+        String browser = System.getProperty("browser");
+        if (browser == null) {
+			browser = "chrome";
+		}
         
         // Initializes the WebDriver based on the specified browser
         driver = initializeDriver(browser);
