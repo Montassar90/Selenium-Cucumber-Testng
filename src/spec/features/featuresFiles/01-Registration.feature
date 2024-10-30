@@ -3,7 +3,7 @@ Feature: Registration
 
   # As a new user
   # I want to register on the website
-  # So that I can access my account and make purchases
+  # So that I can access my account and manage it
   Background: 
     Given I navigate to the registration page
 
