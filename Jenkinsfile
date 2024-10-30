@@ -48,7 +48,7 @@ pipeline {
          }
          post {
             always {
-               testng 'target/surefire-reports/*.xml'
+               junit 'target/surefire-reports/*.xml'
             }
             failure {
                echo 'Build failed. Check the test reports for details.'
