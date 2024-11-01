@@ -47,8 +47,18 @@ pipeline {
             
          }
          post {
-            always {
-               junit 'target/surefire-reports/*.xml'
+              always {
+               script {
+                  archiveArtifacts artifacts: "target/Spark.html", allowEmptyArchive: true
+               }
+               publishHTML([
+                  allowMissing: false, 
+                  alwaysLinkToLastBuild: false, 
+                  keepAll: true, 
+                  reportDir: "target", 
+                  reportFiles: 'Spark.html', 
+                  reportName: "Spark"
+               ])
             }
             failure {
                echo 'Build failed. Check the test reports for details.'
