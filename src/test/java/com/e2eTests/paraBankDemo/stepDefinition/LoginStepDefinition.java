@@ -89,4 +89,30 @@ public class LoginStepDefinition {
 			System.err.println("An unexpected error occurred while verifying the Welcome message: " + e.getMessage());
 		}
 	}
+
+// Step definition to perform login with invalid password 
+	@When("I fill the login form with a valid username and an invalid password")
+	public void iFillTheLoginFormWithAValidUsernameAndAnInvalidPassword() {
+		// Uses the login page object to input credentials from config file
+		loginPageObject.performLoginFill(configFileReader.getProperties("userName"),
+				configFileReader.getProperties("wrongPW"));
+
+	}
+
+	// Step definition to verify the presence of error message
+	@Then("I should see an error message")
+	public void iShouldSeeAnErrorMessage() {
+		try {
+			String actualMsg = loginPageObject.getErrorMsg().getText();
+			String expectedMsg = configFileReader.getProperties("loginErrorMsg");
+			assertEquals(actualMsg, expectedMsg);
+		} catch (NullPointerException e) {
+			// Logs a message if error message element is null
+			System.err.println("Error message is not found or is null: " + e.getMessage());
+		} catch (Exception e) {
+			// Logs any unexpected errors
+			System.err.println("An unexpected error occurred while verifying the Error message: " + e.getMessage());
+		}
+	}
+
 }
