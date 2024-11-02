@@ -31,6 +31,9 @@ public class LoginPageObject {
 	// Welcome message displayed on the left panel after login
 	@FindBy(how = How.XPATH, using = "//div[@id='leftPanel']//p[@class='smallText']")
 	private WebElement welcomeMsg;
+	
+	@FindBy(how = How.XPATH, using = "//div[@id='rightPanel']/p[@class='error']")
+	private WebElement errorMsg;
 
 	// Constructor to initialize elements using PageFactory
 	public LoginPageObject() {
@@ -84,4 +87,11 @@ public class LoginPageObject {
 	public WebElement getLoginPanel() {
 		return loginPanel;
 	}
+
+	public WebElement getErrorMsg() {
+		return errorMsg;
+	}
+
+	
+	
 }

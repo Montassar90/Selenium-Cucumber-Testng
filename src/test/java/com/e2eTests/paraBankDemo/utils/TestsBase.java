@@ -47,8 +47,7 @@ public class TestsBase {
 	}
 
 	@After
-	public void tearDown() {
-		// Closes the WebDriver if it is still active
+	public void tearDown() { // Closes the WebDriver if it is still active
 		if (driver != null) {
 			driver.quit();
 		}
@@ -57,5 +56,6 @@ public class TestsBase {
 	// Returns the WebDriver instance to other classes if needed
 	public static WebDriver getDriver() {
 		return driver;
+
 	}
 }
