@@ -6,6 +6,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 
 public class TestsBase {
 
@@ -14,7 +15,7 @@ public class TestsBase {
 	private ConfigFileReader configFileReader = new ConfigFileReader(); // Reads configuration settings
 
 	@Before
-	public void setup() {
+	public void setup(Scenario scenario) {
 		// Gets the browser type from system properties, defaulting to "chrome"
 		String browser = System.getProperty("browser");
 		if (browser == null) {
@@ -58,4 +59,5 @@ public class TestsBase {
 		return driver;
 
 	}
+
 }
