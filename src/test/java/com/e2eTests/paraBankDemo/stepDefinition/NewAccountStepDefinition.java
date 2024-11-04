@@ -1,12 +1,8 @@
 package com.e2eTests.paraBankDemo.stepDefinition;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
-
-import com.e2eTests.paraBankDemo.pageObject.LoginPageObject;
 import com.e2eTests.paraBankDemo.pageObject.NewAccountPageObject;
 import com.e2eTests.paraBankDemo.utils.ConfigFileReader;
-
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -23,8 +19,9 @@ public class NewAccountStepDefinition {
 		configFileReader = new ConfigFileReader();
 	}
 
-	@When("I click on the open new account link")
+	@Then("I click on the open new account link")
 	public void iClickOnTheOpenNewAccountLink() {
+		// Navigates to the 'Open New Account' page
 		newAccountPageObject.navigateToNewAccountLink();
 	}
 
@@ -38,11 +35,42 @@ public class NewAccountStepDefinition {
 			// Compares actual message with expected message
 			assertEquals(actualMsg, expectedMsg);
 		} catch (NullPointerException e) {
-			// Logs a message if welcome message element is null
+			// Logs a message if section title element is null
 			System.err.println("Section title is not found or is null: " + e.getMessage());
 		} catch (Exception e) {
 			// Logs any unexpected errors
 			System.err.println("An unexpected error occurred while verifying the section title: " + e.getMessage());
+		}
+	}
+
+	@When("I select {string} account from the account type dropdown")
+	public void iSelectAccountFromTheAccountTypeDropdown(String type) {
+		// Selects the specified account type from the dropdown
+		newAccountPageObject.selectAccountType(type);
+	}
+
+	@When("I click on the open new account button")
+	public void iClickOnTheOpenNewAccountButton() {
+		// Clicks the 'Open New Account' button
+		newAccountPageObject.clickOnOpenNewAccountBtn();
+	}
+
+	@Then("I should see a confirmation message")
+	public void iShouldSeeAConfirmationMessage() {
+		try {
+			// Retrieves the actual confirmation message text from the page
+			String actualMsg = newAccountPageObject.getNewAccountConfirmMsg().getText();
+			// Gets the expected confirmation message from configuration properties
+			String expectedMsg = configFileReader.getProperties("openNewAccountConfirm");
+
+			assertEquals(actualMsg, expectedMsg);
+		} catch (NullPointerException e) {
+			// Logs a message if confirmation message element is null
+			System.err.println("Confirmation message is not found or is null: " + e.getMessage());
+		} catch (Exception e) {
+			// Logs any unexpected errors
+			System.err.println(
+					"An unexpected error occurred while verifying the confirmation message: " + e.getMessage());
 		}
 	}
 

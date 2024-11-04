@@ -9,7 +9,17 @@ Feature: Open New Account
     When I fill the login form
     And I click on the login button
     Then I should be redirected to my accounts overview page
+    And I click on the open new account link
 
   Scenario: I am able to acces to the open new account service
-    When I click on the open new account link
     Then The open new account section should appears
+
+  Scenario: I create a new checking account
+    When I select "CHECKING" account from the account type dropdown
+    And I click on the open new account button
+    Then I should see a confirmation message
+
+  Scenario: I create a new savings account
+    When I select "SAVINGS" account from the account type dropdown
+    And I click on the open new account button
+    Then I should see a confirmation message

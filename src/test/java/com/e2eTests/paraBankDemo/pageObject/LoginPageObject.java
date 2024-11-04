@@ -87,6 +87,12 @@ public class LoginPageObject {
 	public WebElement getLoginPanel() {
 		return loginPanel;
 	}
+	
+	/**
+	 * Retrieves the error message element for verification purposes.
+	 * 
+	 * @return WebElement representing the error message
+	 */
 
 	public WebElement getErrorMsg() {
 		return errorMsg;
