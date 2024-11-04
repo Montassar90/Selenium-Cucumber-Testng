@@ -48,7 +48,8 @@ public class TestsBase {
 	}
 
 	@After
-	public void tearDown() { // Closes the WebDriver if it is still active
+	// Closes the WebDriver if it is still active
+	public void tearDown() { 
 		if (driver != null) {
 			driver.quit();
 		}
