@@ -5,6 +5,7 @@ import static org.testng.Assert.assertTrue;
 
 import com.e2eTests.paraBankDemo.pageObject.LoginPageObject;
 import com.e2eTests.paraBankDemo.utils.ConfigFileReader;
+import com.e2eTests.paraBankDemo.utils.FakerDataGenerator;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -43,9 +44,9 @@ public class LoginStepDefinition {
 	// Step definition to fill out the login form with credentials
 	@When("I fill the login form")
 	public void iFillTheLoginForm() {
-		// Uses the login page object to input credentials from config file
-		loginPageObject.performLoginFill(configFileReader.getProperties("userName"),
-				configFileReader.getProperties("password"));
+		// Uses the login page object to input credentials from generated Fake data
+		loginPageObject.performLoginFill(FakerDataGenerator.getUsername(),
+				FakerDataGenerator.getPassword());
 	}
 
 	// Step definition to submit the login form
@@ -77,8 +78,8 @@ public class LoginStepDefinition {
 		try {
 			// Retrieves actual welcome message text and constructs expected message
 			String actualMsg = loginPageObject.getWelcomeMsg().getText();
-			String expectedMsg = "Welcome " + configFileReader.getProperties("firstName") + " "
-					+ configFileReader.getProperties("lastName");
+			String expectedMsg = "Welcome " + FakerDataGenerator.getFirstname() + " "
+					+ FakerDataGenerator.getLasttname();
 			// Compares actual message with expected message
 			assertEquals(actualMsg, expectedMsg);
 		} catch (NullPointerException e) {
@@ -93,9 +94,9 @@ public class LoginStepDefinition {
 // Step definition to perform login with invalid password 
 	@When("I fill the login form with a valid username and an invalid password")
 	public void iFillTheLoginFormWithAValidUsernameAndAnInvalidPassword() {
-		// Uses the login page object to input credentials from config file
-		loginPageObject.performLoginFill(configFileReader.getProperties("userName"),
-				configFileReader.getProperties("wrongPW"));
+		// Uses the login page object to input credentials from generated Fake data
+		loginPageObject.performLoginFill(FakerDataGenerator.getUsername(),
+				FakerDataGenerator.getInvalidpw());
 
 	}
 

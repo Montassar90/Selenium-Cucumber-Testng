@@ -41,17 +41,13 @@ public class LoginPageObject {
 	}
 
 	/**
-	 * Method to fill in the login form with provided username and password. The
-	 * "browser" system property is prefixed to the username and password as a test
-	 * behavior.
-	 *
-	 * @param user     the username to input
+	 * Method to fill in the login form with provided username and password.
+	 * @param userName the username to input
 	 * @param password the password to input
 	 */
-	public void performLoginFill(String user, String password) {
-		String browser = System.getProperty("browser", "chrome");
-		userNameInput.sendKeys(browser + user);
-		passwordInput.sendKeys(browser + password);
+	public void performLoginFill(String userName, String password) {
+		userNameInput.sendKeys(userName);
+		passwordInput.sendKeys(password);
 	}
 
 	/**
