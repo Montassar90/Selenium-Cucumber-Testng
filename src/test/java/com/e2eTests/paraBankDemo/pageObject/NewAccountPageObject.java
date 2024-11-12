@@ -39,6 +39,10 @@ public class NewAccountPageObject {
 
 	// Method to navigate to the 'Open New Account' page by clicking the link
 	public void navigateToNewAccountLink() {
+		WebDriverWait wait = new WebDriverWait(TestsBase.getDriver(), Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.visibilityOf(newAccountLink));
+		wait.until(ExpectedConditions.elementToBeClickable(newAccountLink));
+
 		newAccountLink.click();
 	}
 
