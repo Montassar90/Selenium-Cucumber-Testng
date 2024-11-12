@@ -24,13 +24,18 @@
 		<cucumbertestng.version>7.20.1</cucumbertestng.version>
 		<extentreports.version>5.1.1</extentreports.version>
 		<extentreports-cucumber7-adapter.version>1.14.0</extentreports-cucumber7-adapter.version>
-		<pdfextentreporter.version>1.3.2</pdfextentreporter.version>
-		<screenshot.version>1.5.4</screenshot.version>
+		<javafaker.version>1.0.2</javafaker.version>
 
 
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.github.javafaker</groupId>
+			<artifactId>javafaker</artifactId>
+			<version>${javafaker.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
@@ -68,17 +73,6 @@
 			<artifactId>extentreports-cucumber7-adapter</artifactId>
 			<version>${extentreports-cucumber7-adapter.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>tech.grasshopper</groupId>
-			<artifactId>pdfextentreporter</artifactId>
-			<version>${pdfextentreporter.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>ru.yandex.qatools.ashot</groupId>
-			<artifactId>ashot</artifactId>
-			<version>${screenshot.version}</version>
-		</dependency>
-
 	</dependencies>
 
 	<build>

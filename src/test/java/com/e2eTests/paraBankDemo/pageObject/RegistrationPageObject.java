@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import com.e2eTests.paraBankDemo.utils.ConfigFileReader;
+import com.e2eTests.paraBankDemo.utils.FakerDataGenerator;
 import com.e2eTests.paraBankDemo.utils.TestsBase;
 
 public class RegistrationPageObject {
@@ -57,12 +57,10 @@ public class RegistrationPageObject {
 	@FindBy(how = How.ID, using = "customer.username.errors")
 	private WebElement userNameError;
 
-	public ConfigFileReader configFileReader;
 
-	// Constructor initializes WebElements and loads configuration file
+	// Constructor initializes WebElements
 	public RegistrationPageObject() {
 		PageFactory.initElements(TestsBase.getDriver(), this);
-		configFileReader = new ConfigFileReader();
 	}
 
 	// Method to navigate to the sign-up page by clicking on the "Register" link
@@ -70,23 +68,20 @@ public class RegistrationPageObject {
 		signUpLink.click();
 	}
 
-	// Method to fill out the registration form with data from configuration file
+	// Method to fill out the registration form with data from generated Fake data 
 	public void performFormFill() {
-		String browser = System.getProperty("browser", "chrome"); // Retrieves the current browser property
 		// Fill in each field in the registration form
-		firstNameInput.sendKeys(configFileReader.getProperties("firstName"));
-		lastNameInput.sendKeys(configFileReader.getProperties("lastName"));
-		addressInput.sendKeys(configFileReader.getProperties("address"));
-		cityInput.sendKeys(configFileReader.getProperties("city"));
-		stateInput.sendKeys(configFileReader.getProperties("state"));
-		zipCodeInput.sendKeys(configFileReader.getProperties("zip"));
-		phoneInput.sendKeys(configFileReader.getProperties("phone"));
-		ssnInput.sendKeys(configFileReader.getProperties("ssn"));
-		userNameInput.sendKeys(browser + configFileReader.getProperties("userName")); // Username prefixed with browser
-																						// name
-		passwordInput.sendKeys(browser + configFileReader.getProperties("password")); // Password prefixed with browser
-																						// name
-		passwordConfirmInput.sendKeys(browser + configFileReader.getProperties("password"));
+		firstNameInput.sendKeys(FakerDataGenerator.getFirstname());
+		lastNameInput.sendKeys(FakerDataGenerator.getLasttname());
+		addressInput.sendKeys(FakerDataGenerator.getAddress());
+		cityInput.sendKeys(FakerDataGenerator.getCity());
+		stateInput.sendKeys(FakerDataGenerator.getState());
+		zipCodeInput.sendKeys(FakerDataGenerator.getZip());
+		phoneInput.sendKeys(FakerDataGenerator.getPhone());
+		ssnInput.sendKeys(FakerDataGenerator.getSsn());
+		userNameInput.sendKeys(FakerDataGenerator.getUsername());  																			
+		passwordInput.sendKeys(FakerDataGenerator.getPassword()); 
+		passwordConfirmInput.sendKeys(FakerDataGenerator.getPassword());
 	}
 
 	// Method to submit the registration form

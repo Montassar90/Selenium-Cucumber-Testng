@@ -1,5 +1,7 @@
 package com.e2eTests.paraBankDemo.utils;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -15,7 +17,7 @@ public class TestsBase {
 	private ConfigFileReader configFileReader = new ConfigFileReader(); // Reads configuration settings
 
 	@Before
-	public void setup(Scenario scenario) {
+	public void setup() {
 		// Gets the browser type from system properties, defaulting to "chrome"
 		String browser = System.getProperty("browser");
 		if (browser == null) {
@@ -49,7 +51,15 @@ public class TestsBase {
 
 	@After
 	// Closes the WebDriver if it is still active
-	public void tearDown() { 
+	public void tearDown(Scenario scenario) { 
+		if (scenario.isFailed()) {
+
+			final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+
+			scenario.attach(screenshot, "image/png", "screenshot");
+
+		}
+
 		if (driver != null) {
 			driver.quit();
 		}
