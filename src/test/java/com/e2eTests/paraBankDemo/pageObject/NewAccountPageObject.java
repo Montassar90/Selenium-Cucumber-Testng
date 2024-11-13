@@ -1,15 +1,14 @@
 package com.e2eTests.paraBankDemo.pageObject;
 
-import java.time.Duration;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import com.e2eTests.paraBankDemo.utils.TestsBase;
+import lombok.Getter;
 
+@Getter
 public class NewAccountPageObject {
 	// Web element for the 'Open New Account' link on the left panel
 	@FindBy(how = How.XPATH, using = "//div[@id='leftPanel']//a[@href='openaccount.htm']")
@@ -39,10 +38,6 @@ public class NewAccountPageObject {
 
 	// Method to navigate to the 'Open New Account' page by clicking the link
 	public void navigateToNewAccountLink() {
-		WebDriverWait wait = new WebDriverWait(TestsBase.getDriver(), Duration.ofSeconds(30));
-		wait.until(ExpectedConditions.visibilityOf(newAccountLink));
-		wait.until(ExpectedConditions.elementToBeClickable(newAccountLink));
-
 		newAccountLink.click();
 	}
 
@@ -56,23 +51,7 @@ public class NewAccountPageObject {
 	// Method to click the 'Open New Account' button with an explicit wait for it to
 	// be clickable
 	public void clickOnOpenNewAccountBtn() {
-		WebDriverWait wait = new WebDriverWait(TestsBase.getDriver(), Duration.ofSeconds(30));
-		wait.until(ExpectedConditions.visibilityOf(newAccountBtn));
-		wait.until(ExpectedConditions.elementToBeClickable(newAccountBtn));
 		newAccountBtn.click();
-	}
-
-	// Method to get the title element of the page
-	public WebElement getPageTitle() {
-		return pageTitle;
-	}
-
-	// Method to get the confirmation message after creating a new account with an
-	// explicit wait
-	public WebElement getNewAccountConfirmMsg() {
-		WebDriverWait wait = new WebDriverWait(TestsBase.getDriver(), Duration.ofSeconds(30));
-		wait.until(ExpectedConditions.visibilityOf(newAccountConfirmMsg));
-		return newAccountConfirmMsg;
 	}
 
 }

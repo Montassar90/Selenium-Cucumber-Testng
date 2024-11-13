@@ -1,7 +1,6 @@
 package com.e2eTests.paraBankDemo.utils;
 
 import java.util.Locale;
-
 import com.github.javafaker.Faker;
 
 public class FakerDataGenerator {

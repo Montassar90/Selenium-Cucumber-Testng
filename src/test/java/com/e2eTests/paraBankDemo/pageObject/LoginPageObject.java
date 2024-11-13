@@ -5,7 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import com.e2eTests.paraBankDemo.utils.TestsBase;
+import lombok.Getter;
 
+@Getter
 public class LoginPageObject {
 
 	// Element representing the login panel area on the page
@@ -57,43 +59,4 @@ public class LoginPageObject {
 		loginButton.click();
 	}
 
-	/**
-	 * Retrieves the page title element for verification purposes.
-	 * 
-	 * @return WebElement representing the page title
-	 */
-	public WebElement getPageTitle() {
-		return pageTitle;
-	}
-
-	/**
-	 * Retrieves the welcome message element for verification purposes.
-	 * 
-	 * @return WebElement representing the welcome message
-	 */
-	public WebElement getWelcomeMsg() {
-		return welcomeMsg;
-	}
-
-	/**
-	 * Retrieves the login panel element for verification purposes.
-	 * 
-	 * @return WebElement representing the login panel
-	 */
-	public WebElement getLoginPanel() {
-		return loginPanel;
-	}
-	
-	/**
-	 * Retrieves the error message element for verification purposes.
-	 * 
-	 * @return WebElement representing the error message
-	 */
-
-	public WebElement getErrorMsg() {
-		return errorMsg;
-	}
-
-	
-	
 }
