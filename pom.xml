@@ -25,11 +25,19 @@
 		<extentreports.version>5.1.1</extentreports.version>
 		<extentreports-cucumber7-adapter.version>1.14.0</extentreports-cucumber7-adapter.version>
 		<javafaker.version>1.0.2</javafaker.version>
+		<lombok.version>1.18.34</lombok.version>
 
 
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>com.github.javafaker</groupId>
 			<artifactId>javafaker</artifactId>

@@ -6,7 +6,9 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import com.e2eTests.paraBankDemo.utils.FakerDataGenerator;
 import com.e2eTests.paraBankDemo.utils.TestsBase;
+import lombok.Getter;
 
+@Getter
 public class RegistrationPageObject {
 	// Locate the "Register" link in the login panel
 	@FindBy(how = How.XPATH, using = "//div[@id='loginPanel']//a[text()='Register']")
@@ -87,15 +89,6 @@ public class RegistrationPageObject {
 	// Method to submit the registration form
 	public void submitForm() {
 		submitBtn.click();
-	}
-
-	// Method to retrieve the success message element after form submission
-	public WebElement getSuccessMsg() {
-		return successMsg;
-	}
-
-	public WebElement getUserNameError() {
-		return userNameError;
 	}
 
 }

@@ -2,6 +2,7 @@ package com.e2eTests.paraBankDemo.stepDefinition;
 
 import static org.testng.Assert.assertEquals;
 import com.e2eTests.paraBankDemo.pageObject.NewAccountPageObject;
+import com.e2eTests.paraBankDemo.utils.BrowserUtils;
 import com.e2eTests.paraBankDemo.utils.ConfigFileReader;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,14 +14,20 @@ public class NewAccountStepDefinition {
 	// Object for reading configuration properties
 	public ConfigFileReader configFileReader;
 
+	// Object for interacting with BrowserUtils class
+	public BrowserUtils browserUtils;
+
 	// Constructor to initialize page object and config reader
 	public NewAccountStepDefinition() {
 		newAccountPageObject = new NewAccountPageObject();
 		configFileReader = new ConfigFileReader();
+		browserUtils = new BrowserUtils();
 	}
 
 	@Then("I click on the open new account link")
 	public void iClickOnTheOpenNewAccountLink() {
+		browserUtils.explicitVisibleWait(newAccountPageObject.getNewAccountLink());
+		browserUtils.explicitClickableWait(newAccountPageObject.getNewAccountLink());
 		// Navigates to the 'Open New Account' page
 		newAccountPageObject.navigateToNewAccountLink();
 	}
@@ -51,6 +58,8 @@ public class NewAccountStepDefinition {
 
 	@When("I click on the open new account button")
 	public void iClickOnTheOpenNewAccountButton() {
+		browserUtils.explicitVisibleWait(newAccountPageObject.getNewAccountBtn());
+		browserUtils.explicitClickableWait(newAccountPageObject.getNewAccountBtn());
 		// Clicks the 'Open New Account' button
 		newAccountPageObject.clickOnOpenNewAccountBtn();
 	}
@@ -58,6 +67,7 @@ public class NewAccountStepDefinition {
 	@Then("I should see a confirmation message")
 	public void iShouldSeeAConfirmationMessage() {
 		try {
+			browserUtils.explicitVisibleWait(newAccountPageObject.getNewAccountConfirmMsg());
 			// Retrieves the actual confirmation message text from the page
 			String actualMsg = newAccountPageObject.getNewAccountConfirmMsg().getText();
 			// Gets the expected confirmation message from configuration properties
