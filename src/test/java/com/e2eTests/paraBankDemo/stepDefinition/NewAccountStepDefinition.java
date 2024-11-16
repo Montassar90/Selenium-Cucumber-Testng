@@ -1,6 +1,7 @@
 package com.e2eTests.paraBankDemo.stepDefinition;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 import com.e2eTests.paraBankDemo.pageObject.NewAccountPageObject;
 import com.e2eTests.paraBankDemo.utils.BrowserUtils;
 import com.e2eTests.paraBankDemo.utils.ConfigFileReader;
@@ -81,6 +82,20 @@ public class NewAccountStepDefinition {
 			// Logs any unexpected errors
 			System.err.println(
 					"An unexpected error occurred while verifying the confirmation message: " + e.getMessage());
+		}
+	}
+
+	@Then("I should see my new account ID number")
+	public void iShouldSeeMyNewAccountIdNumber() {
+		try {
+			browserUtils.explicitVisibleWait(newAccountPageObject.getNewAccountId());
+			assertTrue(newAccountPageObject.getNewAccountId().isDisplayed());
+		} catch (NullPointerException e) {
+			// Logs a message if confirmation message element is null
+			System.err.println("Account ID is not found or is null: " + e.getMessage());
+		} catch (Exception e) {
+			// Logs any unexpected errors
+			System.err.println("An unexpected error occurred while verifying the Account ID: " + e.getMessage());
 		}
 	}
 

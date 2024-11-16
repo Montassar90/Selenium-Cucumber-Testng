@@ -18,8 +18,16 @@ public class FakerDataGenerator {
 	private static final String userName = faker.name().username();
 	private static final String password = faker.internet().password(6, 8, true);
 	private static final String invalidPw = faker.internet().password();
+	private static final String payeeName = faker.name().fullName();
+	private static final String payeeAddress = faker.address().streetAddress();
+	private static final String payeeCity = faker.address().city();
+	private static final String payeeState = faker.address().state();
+	private static final String payeeZip = faker.address().zipCode();
+	private static final String payeePhone = faker.phoneNumber().cellPhone();
+	private static final String payeeAccountId = faker.numerify("#####");
+	private static final String MMpayeeAccountId = faker.numerify("#####");
+	private static final String paymentAmount = faker.numerify("###");
 
-	
 	public static String getFirstname() {
 		return firstName;
 	}
@@ -63,7 +71,41 @@ public class FakerDataGenerator {
 	public static String getInvalidpw() {
 		return invalidPw;
 	}
-	
-	
+
+	public static String getPayeename() {
+		return payeeName;
+	}
+
+	public static String getPayeeaccountid() {
+		return payeeAccountId;
+	}
+
+	public static String getPaymentamount() {
+		return paymentAmount;
+	}
+
+	public static String getPayeeaddress() {
+		return payeeAddress;
+	}
+
+	public static String getPayeecity() {
+		return payeeCity;
+	}
+
+	public static String getPayeestate() {
+		return payeeState;
+	}
+
+	public static String getPayeezip() {
+		return payeeZip;
+	}
+
+	public static String getPayeephone() {
+		return payeePhone;
+	}
+
+	public static String getMmpayeeaccountid() {
+		return MMpayeeAccountId;
+	}
 
 }
