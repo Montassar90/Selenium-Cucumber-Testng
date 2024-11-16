@@ -18,8 +18,10 @@ Feature: Open New Account
     When I select "CHECKING" account from the account type dropdown
     And I click on the open new account button
     Then I should see a confirmation message
+    And I should see my new account ID number
 
   Scenario: I create a new savings account
     When I select "SAVINGS" account from the account type dropdown
     And I click on the open new account button
     Then I should see a confirmation message
+    And I should see my new account ID number

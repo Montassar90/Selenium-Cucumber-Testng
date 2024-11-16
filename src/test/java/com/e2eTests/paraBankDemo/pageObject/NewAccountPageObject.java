@@ -30,6 +30,11 @@ public class NewAccountPageObject {
 	// account
 	@FindBy(how = How.XPATH, using = "//div[@id='openAccountResult']//p")
 	private WebElement newAccountConfirmMsg;
+	
+	// Web element for the confirmation message displayed after creating a new
+		// account
+		@FindBy(how = How.XPATH, using = "//div[@id='openAccountResult']//a[@id='newAccountId']")
+		private WebElement newAccountId;
 
 	// Constructor to initialize web elements with PageFactory
 	public NewAccountPageObject() {
