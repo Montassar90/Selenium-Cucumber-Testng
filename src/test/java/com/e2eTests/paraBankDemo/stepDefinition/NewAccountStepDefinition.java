@@ -10,13 +10,13 @@ import io.cucumber.java.en.When;
 
 public class NewAccountStepDefinition {
 	// Object for interacting with login page elements
-	public NewAccountPageObject newAccountPageObject;
+	private NewAccountPageObject newAccountPageObject;
 
 	// Object for reading configuration properties
-	public ConfigFileReader configFileReader;
+	private ConfigFileReader configFileReader;
 
 	// Object for interacting with BrowserUtils class
-	public BrowserUtils browserUtils;
+	private BrowserUtils browserUtils;
 
 	// Constructor to initialize page object and config reader
 	public NewAccountStepDefinition() {
