@@ -13,8 +13,8 @@ public class RegistrationStepDefinition {
 
 	// Declaration of page object and configuration reader objects to be used within
 	// this class.
-	public RegistrationPageObject registrationPageObject;
-	public ConfigFileReader configFileReader;
+	private RegistrationPageObject registrationPageObject;
+	private ConfigFileReader configFileReader;
 
 	// Constructor to initialize the page object and configuration reader.
 	public RegistrationStepDefinition() {

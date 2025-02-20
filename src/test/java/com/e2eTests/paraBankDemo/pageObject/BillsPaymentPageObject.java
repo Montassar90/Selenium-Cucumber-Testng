@@ -68,17 +68,29 @@ public class BillsPaymentPageObject {
 		billPayLink.click();
 	}
 	
-	public void performPaymentBillFill(String payeeAccount,String payeeAccountConf){
-		
+	public void performPayeeInfoFill(){
+		payeeNameInput.clear();
 		payeeNameInput.sendKeys(FakerDataGenerator.getPayeename());
+		payeeAddress.clear();
 		payeeAddress.sendKeys(FakerDataGenerator.getPayeeaddress());
+		payeeCity.clear();
 		payeeCity.sendKeys(FakerDataGenerator.getPayeecity());
+		payeeState.clear();
 		payeeState.sendKeys(FakerDataGenerator.getPayeestate());
+		payeeZip.clear();
 		payeeZip.sendKeys(FakerDataGenerator.getPayeezip());
+		payeePhone.clear();
 		payeePhone.sendKeys(FakerDataGenerator.getPayeephone());
+	}
+	public void performPayeeAccountInfoFill(String payeeAccount,String payeeAccountConf) {
+		payeeAccountNum.clear();
 		payeeAccountNum.sendKeys(payeeAccount);
+		payeeAccountConfirm.clear();
 		payeeAccountConfirm.sendKeys(payeeAccountConf);
+		paymentAmount.clear();
 		paymentAmount.sendKeys(FakerDataGenerator.getPaymentamount());
+	}
+	public void selectPayerAccount() {
 		Select payerAccountDD = new Select(payerAccountId);
 		payerAccountDD.selectByIndex(0);;
 	}

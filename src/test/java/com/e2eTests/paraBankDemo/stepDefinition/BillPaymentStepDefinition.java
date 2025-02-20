@@ -48,8 +48,10 @@ public class BillPaymentStepDefinition {
 
 	@When("I fill the form with valid data")
 	public void iFillTheFormWithValidData() {
-		billsPaymentPageObject.performPaymentBillFill(FakerDataGenerator.getPayeeaccountid(),
+		billsPaymentPageObject.performPayeeInfoFill();
+		billsPaymentPageObject.performPayeeAccountInfoFill(FakerDataGenerator.getPayeeaccountid(),
 				FakerDataGenerator.getPayeeaccountid());
+		billsPaymentPageObject.selectPayerAccount();
 	}
 
 	@When("I click on the confirm button")
@@ -79,7 +81,7 @@ public class BillPaymentStepDefinition {
 
 	@When("I fill the Verify Account field with data that does not match the ID field")
 	public void iFillTheVerifyAccountfieldWithDataThatDoesNotMatchTheIdField() {
-		billsPaymentPageObject.performPaymentBillFill(FakerDataGenerator.getPayeeaccountid(),
+		billsPaymentPageObject.performPayeeAccountInfoFill(FakerDataGenerator.getPayeeaccountid(),
 				FakerDataGenerator.getMmpayeeaccountid());
 
 	}

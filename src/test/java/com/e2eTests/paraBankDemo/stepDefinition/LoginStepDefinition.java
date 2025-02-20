@@ -14,10 +14,10 @@ import io.cucumber.java.en.When;
 public class LoginStepDefinition {
 
 	// Object for interacting with login page elements
-	public LoginPageObject loginPageObject;
+	private LoginPageObject loginPageObject;
 
 	// Object for reading configuration properties
-	public ConfigFileReader configFileReader;
+	private ConfigFileReader configFileReader;
 
 	// Constructor to initialize page object and config reader
 	public LoginStepDefinition() {

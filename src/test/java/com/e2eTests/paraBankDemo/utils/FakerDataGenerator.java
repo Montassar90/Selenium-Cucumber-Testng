@@ -3,6 +3,7 @@ package com.e2eTests.paraBankDemo.utils;
 import java.util.Locale;
 import com.github.javafaker.Faker;
 
+
 public class FakerDataGenerator {
 
 	private static final Faker faker = new Faker(Locale.US);
@@ -26,7 +27,7 @@ public class FakerDataGenerator {
 	private static final String payeePhone = faker.phoneNumber().cellPhone();
 	private static final String payeeAccountId = faker.numerify("#####");
 	private static final String MMpayeeAccountId = faker.numerify("#####");
-	private static final String paymentAmount = faker.numerify("###");
+	private static final String paymentAmount = Integer.toString(faker.number().numberBetween(200, 1000));
 
 	public static String getFirstname() {
 		return firstName;

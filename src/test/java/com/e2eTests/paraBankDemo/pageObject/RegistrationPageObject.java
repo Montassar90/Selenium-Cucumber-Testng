@@ -53,7 +53,7 @@ public class RegistrationPageObject {
 	private WebElement submitBtn;
 
 	// Element to display a success message after registration
-	@FindBy(how = How.XPATH, using = "//div[@id='rightPanel']/p")
+	@FindBy(how = How.CSS, using = "//div[@id='rightPanel']/p")
 	private WebElement successMsg;
 
 	@FindBy(how = How.ID, using = "customer.username.errors")
